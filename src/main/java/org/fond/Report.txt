@@ -1,0 +1,10 @@
+Part 1
+    11 bleues
+    8 rouges
+    2 created
+    we just have two objects in memory instead of the 19 saving a lot of ram
+part 2
+    the vase rotates with the table because it is in its glPushMatrix
+
+
+

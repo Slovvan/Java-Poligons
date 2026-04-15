@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head><title>Even TP Fond</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  </head>
+  <body bgcolor="#BEFEDE" text="#000000" style="font-family:verdana">
+    <h2>IN6 - Canevas du TP sur les rep&egrave;res locaux
+        et la t&acirc;che de fond</h2>
+    <b>1ere partie : Comptage </b><br>
+      <dl>
+        <dt> <u>Pr&eacute; en bulle</u> </dt>
+        <dd> Compiler et ex&eacute;cuter la classe <tt>Exo</tt>.
+            Les touches fl&egrave;che du clavier, combin&eacute;es &agrave;
+            la touche <em>'CTRL'</em>, permettent d'observer la sc&egrave;ne.
+            On peut aussi consulter le fichier <tt>ShowHall.java</tt>. </dd>
+        <dd> Consigner dans le compte-rendu le nombre de chaises bleues
+            diss&eacute;min&eacute;es dans la salle. </dd>
+        <dd> Consigner dans le compte-rendu le nombre de chaises rouges
+            dispers&eacute;es dans la salle. </dd>
+        <dd> Au total, combien de chaises ont-elles &eacute;t&eacute;
+            <b>cr&eacute;&eacute;es </b> ?
+            (J'ai bien dit : <u>"<b>cr&eacute;&eacute;es </b>"</u> ! ) </dd>
+        <dd> Consigner dans le compte-rendu l'&eacute;conomie obtenue par
+            ce proc&eacute;d&eacute;. </dd>
+      </dl>
+    <b>2eme partie : Rep&egrave;res locaux et trac&eacute;s vaseux </b><br>
+      <dl>
+        <dt> <u>Exercice A</u> </dt>
+        <dd> En &eacute;tudiant le fichier <tt>ShowHall.java</tt>, analyser
+          la structure de la sc&egrave;ne. </dd>
+        <dd> <tt>glPushMatrix</tt> empile le contexte matriciel. Il est ainsi
+          possible de retrouver le contexte pr&eacute;c&eacute;dent
+          (rep&egrave;re local) en d&eacute;pilant le contexte. </dd>
+        <dd> Dans le compte-rendu, faire un sch&eacute;ma indiquant le
+          rep&egrave;re global de la sc&egrave;ne et les rep&egrave;res
+          locaux utilis&eacute;s (&eacute;tat du contexte matriciel au
+          moment du <tt>glPushMatrix</tt>). </dd>
+      </dl>
+      <dl>
+        <dt> <u>Exercice B</u> </dt>
+        <dd> Ajouter un vase sur le napperon bleu (<em>table clothe</em>)
+          pos&eacute; sur la table.
+          Le vase sera &eacute;labor&eacute; &agrave; partir de trois
+          c&ocirc;nes tronqu&eacute;s (primitive <tt>HCone</tt>) de
+          couleurs distinctes.
+          L'auteur de ce TP pr&eacute;f&eacute;rant l'artisanat local &agrave;
+          la grande distribution, l'originalit&eacute; du vase
+          r&eacute;alis&eacute; pourra donner lieu &agrave; un bonus.
+          Esquisser la g&eacute;om&eacute;trie du trac&eacute; de ce
+          vase dans le compte-rendu. </dd>
+        <dd> Indiquer aussi dans le compte-rendu ce qui se passe quand on
+          appuie longuement sur la touche <tt>'t'</tt> (en particulier,
+          qu'advient-il du vase ?). </dd>
+      </dl>
+    <b>3eme partie : T&acirc;che de fond </b><br>
+      <p> Note : aucune autre classe que celles fournies dans le trame de ce
+          TP ne devront &ecirc;tre utilis&eacute;es. </p>
+      <dl>
+        <dt> <u>Exercice A</u> </dt>
+        <dd> Ajouter au plafond un ventilateur &agrave; trois pales
+          l&eacute;g&egrave;rement inclin&eacute;es pour brasser l'air,
+          avec un mouvement de rotation g&eacute;r&eacute;
+          par la touche <tt>'v'</tt> (sur le mod&egrave;le de la table). </dd>
+        <dl>
+           <dt> Contraintes : <dt>
+           <dd> - ajouter un nouveau fichier <tt>Fan.java</tt> pour
+                g&eacute;rer le ventilateur; </dd>
+           <dd> - limiter au maximum le nombre de nouvelles primitives
+                volumiques cr&eacute;&eacute;es; </dd>
+           <dd> - n'utiliser qu'un seul rep&egrave;re local
+                <tt>glPushMatrix / glPopMatrix</tt> pour l'ensemble; </dd>
+           <dd> - faire attention au sens de rotation pour que l'air soit
+                puls&eacute; vers le bas. </dd>
+        </dl>
+      </dl>
+      <dl>
+        <dt> <u>Exercice B</u> </dt>
+        <dd> En &eacute;tudiant le fichier <tt>ExoController.java</tt>, on
+          peut remarquer qu'un objet <tt>FPSAnimator</tt> est
+          cr&eacute;&eacute; et activ&eacute;.
+          Cet objet g&egrave;re des raffra&icirc;chissements de l'affichage
+          toutes les 60 millisecondes si possible (valeur par d&eacute;faut).
+          Ainsi, la m&eacute;thode <tt>display</tt> de la classe
+          <tt>ExoView</tt> est appel&eacute;e cycliquement.
+          Il est alors possible d'animer automatiquement la sc&egrave;ne par
+          l'incr&eacute;ment d'un param&egrave;tre au sein de la
+          m&eacute;thode <tt>display</tt>. </dd>
+        <dd> Utiliser cet objet <tt>FPSAnimator</tt> pour faire tourner
+          automatiquement le ventilateur pour envoyer l'air vers le bas de
+          la pi&egrave;ce. Pr&eacute;voir un interrupteur pilot&eacute; par
+          la touche <tt>'w'</tt>. </dd>
+      </dl>
+      <dl>
+        <dt> <u>Exercice C</u> </dt>
+        <dd> Afficher une horloge avec trois aiguilles mobiles (heures,
+          minutes et secondes), correctement synchronis&eacute;es
+          (mouvements relatifs entre aiguilles), sur le
+          mur droit de la pi&egrave;ce. </dd>
+        <dd> Les aiguilles doivent bouger par saccades &agrave; chaque
+          seconde. Pour la synchronisation, se servir du nombre de trames par
+          seconde donn&eacute; par l'attribut <tt>animationFrequency</tt>
+          de la classe <tt>ShowHall</tt>. </dd>
+        <dd> Programmer la touche <tt>'h'</tt> pour acc&eacute;l&eacute;rer
+          le mouvement et permettre de v&eacute;rifier le bon fonctionnement
+          de l'horloge (mode debug). </dd>
+        <dd> Consigner dans le compte-rendu la technique employ&eacute;e
+          pour mod&eacute;liser l'horloge et synchroniser les aiguilles. </dd>
+      </dl>
+  </body>
+</html>

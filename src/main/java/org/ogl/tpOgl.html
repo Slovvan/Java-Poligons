@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head><title>Even TP OpenGL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  </head>
+  <body bgcolor="#BEFEDE" text="#000000" style="font-family:verdana">
+    <h2>IN6 - Canevas du TP sur les primitives graphiques OpenGL </h2>
+    <b>Pr&eacute;ambule</b><br>
+    <p> Ce TP est un entra&icirc;nement au trac&eacute; de primitives
+        graphiques. Il s'appuie sur les notions du cours, et met en
+        &eacute;vidence plusieurs erreurs de trac&eacute; classiques. </p>
+    <p> Ajouter les archives <tt>/usr/share/jogamp/jar/gluegen-rt.jar</tt>
+        et <tt>/usr/share/jogamp/jar/jogl-all.jar</tt> &agrave; la variable
+        d'environnement <tt>CLASSPATH</tt>. <br>
+        Compl&eacute;ter le fichier <tt>Drawing.java</tt> pour afficher les
+        figures suivantes en imposant pour chacune un type de primitive
+        de trac&eacute;. <br>
+        La commande <tt>java Exo</tt> dessine toute la fen&ecirc;tre de
+        trac&eacute;. <br>
+        Un argument correspondant &agrave; un num&eacute;ro d'emplacement
+        (exemple: <tt>java Exo 5</tt>) effectue un zoom sur l'emplacement
+        du shadok. </p>
+    <dl>
+      <dt> R&egrave;gles &agrave; respecter, par ordre de priorit&eacute; :
+           </dt>
+      <dd> 1) Respecter les trac&eacute;s sp&eacute;cifi&eacute;s (des
+              exemples sont fournis dans la figure ci-dessous). </dd>
+      <dd> 2) Les traits et les faces ne doivent pas se recouvrir. </dd>
+      <dd> 3) Utiliser <b>le moins possible</b> de blocs
+              <tt>glBegin / glEnd</tt>. </dd>
+      <dd> 4) Pour chaque figure o&ugrave; il n'est pas
+              sp&eacute;cifi&eacute;, minimiser le nombre de sommets
+              utilis&eacute;s dans chaque bloc. </dd>
+      <dd> 5) Sp&eacute;cifier les sommets dans le sens
+              trigonom&eacute;trique direct pour les figures pleines
+              (la touche <tt>'b'</tt> active l'&eacute;limination
+              des faces arri&egrave;re). </dd>
+      <dd> 6) Utiliser une couleur diff&eacute;rente par figure,
+              s'&eacute;cartant des couleurs fondamentales pures
+              (blanc, noir, rouge, vert, bleu), sauf quand demand&eacute;
+              (la touche <tt>'f'</tt> change la couleur de fond). </dd>
+    </dl> 
+    <img src="tpOgl1.png" width="600" height="600"></p>
+    <dl>
+    <dt>Les figures &agrave; tracer sont : </dt>
+      <br>
+      <dd>1) <em>GL_POINTS</em> (m&eacute;thode <tt>displayPoints</tt>) :
+              45 points de couleur identique al&eacute;atoirement
+              r&eacute;partis sur un cercle selon une loi de
+              probabilit&eacute; uniforme (utiliser <tt>Math.random ()</tt>),
+              &agrave; placer sur l'espace 1 (]-100,-50[ en X et ]50,100[
+              en Y). </dd>
+      <dd> En principe, un seul bloc <tt>glBegin / glEnd</tt> suffit. </dd>
+      <dd> Par d&eacute;faut, 4 points noirs sont trac&eacute;s
+           al&eacute;atoirement &agrave; l'int&eacute;rieur de l'espace
+           pr&eacute;vu; on peut changer la couleur de fond avec la touche
+           <tt>'f'</tt>. </dd>
+      <dd> D&eacute;faut visuel possible : une disposition radiale
+           irr&eacute;guli&egrave;re des points. </dd>
+      <br>
+      <dd>2) <em>GL_LINES</em> (m&eacute;thode <tt>displayLines</tt>) :
+             45 traits de couleur identique joignant les bords d'une ellipse,
+             &agrave; placer sur l'espace 6 (]-100,-50[ en X et ]-100,-50[
+             en Y). Ces bords seront al&eacute;atoirement r&eacute;partis en
+             utilisant la m&eacute;thode du jardinier. </dd>
+      <dd> La m&eacute;thode du jardinier consiste &agrave; attacher une corde
+           de longueur <tt>C</tt> au deux foyers de l'ellipse, et &agrave;
+           tourner autour des foyers tout en maintenant la corde tendue. </dd>
+      <dd> En principe, un seul bloc <tt>glBegin / glEnd</tt> suffit. </dd>
+      <br>
+      <dd>3) <em>GL_LINE_STRIP</em> (m&eacute;thode <tt>displayLineStrip</tt>) :
+              un shadok &agrave; lunettes, trac&eacute;
+              <b>sans recouvrement</b>, avec l'ext&eacute;rieur de couleur
+              dominante bleue et les lunettes de couleur dominante rouge,
+              &agrave; placer sur l'espace 5 (]0,100[ en X et ]0,100[ en Y).
+              </dd>
+      <dd> En principe, deux blocs <tt>glBegin / glEnd</tt> suffisent. </dd>
+      <br>
+      <dd>4) <em>GL_TRIANGLES</em> (m&eacute;thode <tt>displayTriangles</tt>) :
+              4 triangles entrelac&eacute;s un &agrave; dominante rouge,
+              un &agrave; dominante verte, un &agrave; dominante bleue et un
+              &agrave; dominante jaune (attention, bien respecter l'ordre des
+              recouvrements), &agrave; placer sur l'espace 2 (]-50,0[ en X et
+              ]50,100[ en Y). </dd>
+      <dd> En principe, un seul bloc <tt>glBegin / glEnd</tt> suffit. </dd>
+      <dd> Pour cette figure, on autorise le recouvrement de faces. </dd>
+      <dd> D&eacute;faut visuel possible : un triangle avec un
+           d&eacute;crochement sur un des bords. </dd>
+      <br>
+      <dd>5) <em>GL_TRIANGLE_STRIP</em>
+              (m&eacute;thode <tt>displayTriangleStrip</tt>) :
+              une lettre 'W' &eacute;paisse, avec une teinte arlequin (une
+              couleur distincte par sommet), &agrave; placer sur l'espace 3
+              (]-100,-50[ en X et ]0,50[ en Y). Il ne doit pas y avoir de
+              recouvrement de face, ni de discontinuit&eacute; de couleur
+              apparente. </dd>
+      <dd> En principe, un seul bloc <tt>glBegin / glEnd</tt> et 13 sommets
+           suffisent. </dd>
+      <br>
+      <dd>6) <em>GL_TRIANGLE_FAN</em>
+              (m&eacute;thode <tt>displayTriangleFan</tt>) :
+              une fl&egrave;che &eacute;paisse tourn&eacute;e &agrave; droite,
+              avec un creux dans l'empenage, de couleur uniforme &agrave;
+              dominante verte, &agrave; placer sur l'espace 4 (]-50,0[ en X
+              et ]0,50[ en Y).
+      <dd> En principe, un seul bloc <tt>glBegin / glEnd</tt> suffit. </dd>
+      <br>
+      <dd>7) <em>GL_QUADS</em> (m&eacute;thode <tt>displayQuads</tt>) :
+              une lettre 'U' tr&egrave;s &eacute;paisse avec des angles droits,
+              de couleur uniforme &agrave; dominante rouge,
+              <b>sans recouvrement</b> entre les diff&eacute;rents
+              quadrilat&egrave;res, &agrave; placer sur l'espace 7 (]0,100[
+              en X et ]-100,0[ en Y). </dd>
+      <dd> En principe, un seul bloc <tt>glBegin / glEnd</tt> suffit. </dd>
+      <dd> D&eacute;faut visuel possible : des trous peuvent appara&icirc;tre
+           quand on le fait tourner (touche <tt>'r'</tt>). </dd>
+      <br>
+    </dl>
+  </body>
+</html>

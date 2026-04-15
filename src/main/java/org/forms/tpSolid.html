@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head><title>Even TP Solid</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  </head>
+  <body bgcolor="#BEFEDE" text="#000000" style="font-family:verdana">
+    <h2>IN6 - TP sur les primitives surfaciques liss&eacute;es</h2>
+    <b>1ere partie : Primitives volumiques liss&eacute;es</b><br>
+      <dl>
+        <dt> Compiler <em>Exo.java</em> puis ex&eacute;cuter <em>Exo</em>
+          avec <em>1</em> en argument. </dt>
+        <dt> Par rapport &agrave; la primitive <em>ColorCube</em> o&ugrave;
+             une couleur est sp&eacute;cifi&eacute;e pour chaque facette
+             plane, dans la primitive <em>Box</em>, sont
+             sp&eacute;cifi&eacute;s une normale en chaque sommet, un
+             mat&eacute;riau pour chaque objet et des sources de
+             lumi&egrave;re pour la sc&egrave;ne. </dt> <br>
+        <dd> - Ajouter et tester une primitive conique, nomm&eacute;e
+              <em>Cone</em>, similaire &agrave; <em>ColorCone</em>, mais dans
+              laquelle la sp&eacute;cification de couleurs est
+              remplac&eacute;e par une sp&eacute;cification de normales en
+              chaque sommet. <br>
+              Mettre <em>2</em> en argument pour tester. </dd> <br>
+        <dd> - Ajouter et tester une primitive <em>Milestone</em>, de forme
+              similaire &agrave; une borne kilom&eacute;trique : une
+              bo&icirc;te surmont&eacute;e d'un demi-cylindre dont le
+              diam&egrave;tre correspond &agrave; la largeur de la
+              bo&icirc;te (cf dessin). <br>
+              Respecter les param&egrave;tres fournis. <br>
+              Utiliser le moins possible de bloc begin - end. <br>
+              Mettre <em>3</em> en argument pour tester. </dd> <br>
+        <dd> - Ajouter et tester une primitive <em>Wedge</em>, de forme
+              similaire &agrave; une borne kilom&eacute;trique coup&eacute;e
+              en deux selon un plan diagonal tel que la partie arrondie
+              soit &eacute;paisse et la base d'&eacute;paisseur nulle.
+              L'&eacute;paisseur (<em>depth</em>) varie en fonction de
+              la hauteur. L'une des faces planes sera parall&egrave;le
+              au plan 0XZ.
+              Respecter les param&egrave;tres fournis. <br>
+              Utiliser le moins possible de bloc begin - end. <br>
+              Mettre <em>4</em> en argument pour tester. </dd> <br>
+        <dd> <img src="formes/box.png" width="100" height="100">
+             <img src="formes/cone.png" width="100" height="100">
+             <img src="formes/milestone.png" width="100" height="100">
+             <img src="formes/wedge.png" width="100" height="100">
+             <img src="formes/diamondtorus.png" width="100" height="100">
+             <img src="formes/circtorus.png" width="100" height="100">
+             <img src="formes/sphere.png" width="100" height="100">
+             <img src="formes/dome.png" width="100" height="100">
+        </dd> <br>
+        <dd> - Ajouter et tester une primitive <em>DiamondTorus</em>, un
+              tore &agrave; section en forme de carr&eacute; tourn&eacute;
+              de 45 degr&eacute;s. <br>
+              Mettre <em>5</em> en argument pour tester. </dd> <br>
+        <dd> - Ajouter et tester une primitive <em>CircTorus</em>, un
+              tore &agrave; section circulaire (un anneau). <br>
+              Pour cette primitive, on a un param&egrave;tre de
+              r&eacute;solution pour la rotation autour du centre du tore,
+              et un autre param&egrave;tre de r&eacute;solution pour la
+              rotation autour de la section du tore. <br>
+              Mettre <em>6</em> en argument pour tester. </dd> <br>
+      </dl>
+    <b>2eme partie : Maillages</b><br>
+      <dl>
+        <dd> - Ajouter et tester une primitive sph&eacute;rique, nomm&eacute;e
+              <em>Sphere</em> bas&eacute;e sur des coordonn&eacute;es
+              sph&eacute;riques (longitude et platitude), avec pour
+              attributs un rayon une r&eacute;solution en latitude (nombre
+              de parall&egrave;les) et une r&eacute;solution en longitude
+              (nombre de m&eacute;ridiens). <br>
+              Mettre <em>7</em> en argument pour tester. </dd> <br>
+        <dd> - Ajouter et tester une primitive sph&eacute;rique,
+              nomm&eacute;e <em>Dome</em>, bas&eacute;e sur la subdivision
+              r&eacute;cursive d'un icosa&egrave;dre (poly&egrave;dre
+              r&eacute;gulier &agrave; 20 faces et 12 sommets), avec en
+              attributs un rayon et une r&eacute;solution (nombre de
+              subdivisions effectu&eacute;es). <br>
+              On pourra s'inspirer de la primitive
+              <tt>ColorIcosahedron.java</tt> disponible dans le
+              r&eacute;pertoire <tt>exoPrim3D</tt>. <br>
+              Une version simple s'appuie sur la primitive
+              <em>GL_TRIANGLES</em>. <br>
+              Une version optimis&eacute;e s'appuie sur une suite de
+              <em>GL_TRIANGLE_STRIP</em>. <br>
+              Mettre <em>8</em> en argument pour tester. </dd>
+      </dl>
+  </body>
+</html>
